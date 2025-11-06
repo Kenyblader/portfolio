@@ -1,0 +1,47 @@
+.login_container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 500px;
+    padding: 2rem;
+    border: var(--card-border) 1px solid;
+    border-radius: 20px;
+    justify-content: center;
+    background-color: var(--card-background);
+    box-shadow: 0 0 30px var(--shadow-color);
+
+}
+
+.login_form div{
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    gap: 1.5rem;
+}
+
+.login_form input{
+    padding: 0.8rem;
+    border: var(--card-border) 1px solid;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.login_form button{
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-header-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

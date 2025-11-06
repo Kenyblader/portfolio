@@ -1,0 +1,16 @@
+.dashboard_container {
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+ .add_project_button {
+  cursor: pointer;
+}
+
