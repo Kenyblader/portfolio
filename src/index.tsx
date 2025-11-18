@@ -4,13 +4,23 @@ import './index.css';
 import './i18n/config';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'next-themes';
+import { LoadingProvider } from './utils/globalStateContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme='system'
+      enableSystem
+      disableTransitionOnChange= {false}>
+        <LoadingProvider>
+          <App />
+        </LoadingProvider>
+      </ThemeProvider>
   </React.StrictMode>
 );
 

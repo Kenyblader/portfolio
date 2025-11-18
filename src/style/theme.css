@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* src/index.css ou votre fichier CSS global */
+
 :root {
+  /* Light Mode (par défaut) */
   --primary-color: #18113a;
   --secondary-color: #5effa4f5;
   --tertiary-color: #f95c35f5;
@@ -16,4 +19,28 @@
   --card-background: #ffffff;
   --card-border: #dddddd;
   --shadow-color: #839cf4a1;
+}
+
+.dark {
+  /* Dark Mode */
+  --primary-color: #6d5bb8;
+  --secondary-color: #5effa4f5;
+  --tertiary-color: #f95c35f5;
+  --header-background-color: #0a0a0a;
+  --background-color: #121212;
+  --text-header-color: #ffffff;
+  --text-body-color: #e0e0e0;
+  --icons-color: #b0b0b0;
+  --icons-light-color: #ffffff;
+  --icons-background-color: #2a2a2a;
+  --icons-hover-color: #ffffff;
+  --icons-background-hover-color: #3a3a3a;
+  --card-background: #1e1e1e;
+  --card-border: #333333;
+  --shadow-color: #5effa450;
+}
+
+/* Transition smooth pour le changement de thème */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

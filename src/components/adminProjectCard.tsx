@@ -4,7 +4,7 @@ import '../style/projectCard.css';
 import StyledIcon from "./styleIcon";
 import { Edit,  Trash } from "lucide-react";
 
-const AdminProjectCard = ({project, editAction, deleteAction}: {project: Project, editAction: (data:Project) => void, deleteAction: (data:Project) => void}) => {
+const AdminProjectCard = ({project, editAction, deleteAction}: {project: Project, editAction: (...data:any[]) => void, deleteAction: (...data:any[]) => void}) => {
 
   const troncedDescription = project.description.length > 300
     ? project.description.substring(0, 297) + "..."
@@ -14,7 +14,9 @@ const AdminProjectCard = ({project, editAction, deleteAction}: {project: Project
 
   return (
     <div className="project">
-      <img src={project.image ?? defaultImage} alt={project.title} />
+      <a href={project.image} target="_blank" >
+        <img src={project.image ?? defaultImage} alt={project.title} />
+      </a>
       <h2>{project.title}</h2>
       <p>{troncedDescription}</p>
       <div className="project-footer">

@@ -1,0 +1,11 @@
+.icon{
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon:hover {
+  background-color: var(--icons-background-hover-color);
+  color: var(--icons-hover-color);
+  transform: rotate(10deg);
+}
+

@@ -1,0 +1,24 @@
+/* Ajouter dans votre CSS global */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--icons-background-color);
+  color: var(--icons-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--icons-background-hover-color);
+  color: var(--icons-hover-color);
+  transform: rotate(20deg);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95) rotate(20deg);
+}

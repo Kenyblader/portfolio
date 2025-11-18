@@ -10,11 +10,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
     ? project.description.substring(0, 297) + "..."
     : project.description;
 
-   
-
   return (
     <div className="project">
-      <img src={project.image ?? defaultImage} alt={project.title} />
+      <a href={project.image} target="_blank">
+        <img src={project.image ?? defaultImage}  alt={project.title} />
+      </a>
       <h2>{project.title}</h2>
       <p>{troncedDescription}</p>
       <div className="project-footer">

@@ -12,33 +12,7 @@ const languages = [
   { code: 'al', name: 'Allemand' }
 ];
 
-// export function LanguageSwitcher() {
-//   const { i18n } = useTranslation();
 
-//   return (
-//     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-//       {languages.map((lang) => (
-//         <button
-//           key={lang.code}
-//           onClick={() => i18n.changeLanguage(lang.code)}
-//           style={{
-//             padding: '0.5rem 1rem',
-//             backgroundColor: i18n.language === lang.code ? '#3b82f6' : 'transparent',
-//             color: i18n.language === lang.code ? 'white' : 'inherit',
-//             border: '1px solid #ccc',
-//             borderRadius: '0.5rem',
-//             cursor: 'pointer',
-//             transition: 'all 0.3s',
-//             fontSize: '0.875rem',
-//           }}
-//         >
-//           <span style={{ marginRight: '0.5rem' }}>{lang.flag}</span>
-//           {lang.name}
-//         </button>
-//       ))}
-//     </div>
-//   );
-// }
 
 export const LanguageSwitcher =() =>{
   const [active,setActive]= useState(false)

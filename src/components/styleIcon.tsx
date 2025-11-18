@@ -1,11 +1,14 @@
 import { LucideIcon } from "lucide-react";
 import { useState } from "react";
+import '../style/icon.css'
+
 
 interface StyleIconProps {
   icon: LucideIcon;
   size?: number;
   light?: boolean;
   title?: string;
+  onClick?:(data:any)=>void
 }
 
 const StyledIcon = ({
@@ -13,16 +16,16 @@ const StyledIcon = ({
   size = 30,
   light = false,
   title,
+  onClick
 }: StyleIconProps) => {
-  const [hover, setHover] = useState(false);
 
   const style = {
     iconContainer: {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      width: hover?size*1.2:size,
-      height: hover?size*1.115:size,
+      width: size,
+      height: size,
       borderRadius: "50%",
       backgroundColor: light
         ? "var(--primary-color)"
@@ -42,9 +45,9 @@ const StyledIcon = ({
   return (
     <span
       style={style.iconContainer}
+      className="icon"
       title={title}
-      onMouseEnter={(e) => setHover(true)}
-      onMouseLeave={(e) => setHover(false)}
+      onClick={onClick}
     >
       <Icon style={style.icon} strokeWidth={3} />
     </span>

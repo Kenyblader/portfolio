@@ -36,7 +36,7 @@ const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick }: St
 }
 
   return (
-    <span style={style.iconContainer} onClick={onclick}>
+    <span  style={style.iconContainer} onClick={onclick}>
     
       <Icon style={style.icon} strokeWidth={3}  />
       <span style={style.text}>{text}</span>

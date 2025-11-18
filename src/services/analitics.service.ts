@@ -29,7 +29,7 @@ class AnaliticsService{
       // Compter seulement si c'est un jour différent
       if (lastVisit !== today) {
         try {
-          this.addviewer()
+          await this.addviewer()
           sessionStorage.setItem(this.VISIT_KEY, today);
           console.log('✅ Nouvelle visite du jour enregistrée');
         } catch (error) {

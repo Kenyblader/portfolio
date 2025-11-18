@@ -1,12 +1,11 @@
 import {  useEffect, useState } from 'react';
-import { BrowserRouter, Link, Navigate, replace, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Home from './screens/home';
-import {  GithubIcon, Globe, HomeIcon, LinkedinIcon, Mail, SunMoon, UserRound } from 'lucide-react';
+import {  GithubIcon, HomeIcon, LinkedinIcon, Mail, SunMoon, UserRound } from 'lucide-react';
 import StyledIcon from './components/styleIcon';
 import './style/theme.css';
 import './style/app.css';
 import home_image from './assets/home.jpg';
-import StyledIconText from './components/StyledIconText';
 import Login from './screens/login';
 import { authService } from './services/auth.service';
 import Dashboard from './screens/dashbord';
@@ -18,6 +17,8 @@ import { authHook } from './utils/authHook';
 import { analiticsService } from './services/analitics.service';
 import SplitTextAnimation from './components/blenderAnimation';
 import FadeUpAnimation from './components/faceUpAnimation';
+import ThemeToggle from './components/toggleThemeButton';
+import GlobalLoading from './components/GlobaloLoading';
 
 function App() {
 
@@ -49,8 +50,6 @@ function App() {
     }
     suscreibe();
     fetchData();
-    
-
   }, []);
 
 
@@ -71,7 +70,7 @@ function App() {
           <div className="header_left">
             <LanguageSwitcher></LanguageSwitcher>
             <Link to={isLog?"/dashboard#dashboard":"/"}><StyledIcon icon={HomeIcon} /></Link>
-            <StyledIcon icon={SunMoon}  />
+            <ThemeToggle></ThemeToggle>
             <Link to={profileData.github} target='_blank'><StyledIcon icon={GithubIcon}  /></Link>
             <Link to={profileData.linkedin} target='_blank'><StyledIcon icon={LinkedinIcon}  /></Link>
             <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profileData.email}`} target='_blank' rel='noopener noreferrer' ><StyledIcon icon={Mail}   /></a>
@@ -89,8 +88,10 @@ function App() {
           <img src={home_image} alt={t('nav.altHomeImage')}  />
         </div>
     </nav>
-
-      <Routes>
+    
+      <div>
+        <GlobalLoading/>
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={
@@ -104,7 +105,8 @@ function App() {
             <ProjectForm />
           </ProtectedRoute>
         } />
-      </Routes>
+        </Routes>
+      </div>
    </BrowserRouter>
    </>
   );
