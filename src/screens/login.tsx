@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../style/login.css';
 import { authService } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
 
@@ -9,15 +10,16 @@ const Login = () => {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [touched, setTouched] = useState<Record<string, boolean>>({});
     const navigate = useNavigate();
+    const {t}= useTranslation();
 
     function validate (name:string,value:string)  {
         switch (name) {
             case 'username':
-                if (!value) return 'Username is required';
+                if (!value) return t('login.usernameRequired');
                 else return '';
             case 'password':
-                if (!value) return 'Password is required';
-                else if (value.length < 6) return 'Password must be at least 6 characters';
+                if (!value) return  t('login.passwordRequired');
+                else if (value.length < 6) return  t('login.passwordCaracter');
                 else return '';
             default:
                 return '';
@@ -60,7 +62,7 @@ const Login = () => {
                
                navigate('/dashboard#dashboard');
             } else {
-               setErrors({ password: 'Invalid username or password' });
+               setErrors({ password:  t('login.invalidCredentials') });
             }
         }
         
@@ -70,11 +72,11 @@ const Login = () => {
     <div className='login_container'>
         <form className="login_form" id='form' onSubmit={handleSubmit}>
             <div>
-            <h2>Login</h2>
+            <h2>{ t('login.login')}</h2>
             <input 
                 type="text" 
                 name='username'
-                placeholder="Username" 
+                placeholder= {t('login.username') }
                 value={formData.username} 
                 onChange={handleChange} 
                 onBlur={handleBlurt} 
@@ -83,7 +85,7 @@ const Login = () => {
             <input 
                 type="password" 
                 name='password'
-                placeholder="Password" 
+                placeholder={ t('login.password')} 
                 value={formData.password} 
                 onChange={handleChange} 
                 onBlur={handleBlurt} 
@@ -92,7 +94,7 @@ const Login = () => {
             <span className="error">{errors.password}</span>
             )}
             </div>
-            <button className='login_button' type="submit">Submit</button>
+            <button className='login_button' type="submit">{ t('sunmit')}</button>
         </form>
     </div>
     

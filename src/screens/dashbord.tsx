@@ -1,45 +1,55 @@
 import { useState, useEffect } from "react";
 import Project from "../models/project";
 import { projectService } from "../services/project.service";
-import ProjectCard from "../components/projectCard";
 import AdminProjectCard from "../components/adminProjectCard";
 import Card from "../components/card";
 import '../style/dashboard.css'
 import StyledIconText from "../components/StyledIconText";
 import { CirclePlus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { analiticsService } from "../services/analitics.service";
 
 const Dashboard = () => {
 
 const [projects, setProjects] = useState<Project[]>([]);
+const [views, setviews] = useState(0);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const navigation = useNavigate();
+  const {t}= useTranslation();
 
   useEffect(() => {
     async function getProjects() {
       try {
         setLoading(true);
         const projects = await projectService.getProjects();
-        console.log('Projets chargés:', projects);
         setProjects(projects);
         setError(null);
       } catch (err: any) {
-        setError(err.message || 'Erreur lors du chargement');
+        setError(err.message ||  t('dashboard.errorLoading'));
         console.error('Erreur:', err);
       } finally {
         setLoading(false);
       }
     }
 
+    async function getView() {
+      const view= await analiticsService.getViewer();
+      setviews(view);
+    }
+
     getProjects();
+    getView();
   }, []); // [] = exécute une seule fois au montage
 
   if (loading) {
-    return <div className="dashboard_container">Chargement des projets...</div>;
+    return <div className="dashboard_container">{t('dashboard.projectLoading')}</div>;
   }
 
   if (error) {
-    return <div className="dashboard_container">Erreur: {error}</div>;
+    return <div className="dashboard_container">{t('error')}: {error}</div>;
   }
 
     function handleEdit(updatedProject: Project): void {
@@ -53,33 +63,37 @@ const [projects, setProjects] = useState<Project[]>([]);
     async function handleDelete(projectToDelete: Project): Promise<void> {
 
         console.log("Suppression du projet :", projectToDelete);
-        // try {
-        //     setLoading(true);
-        //     await projectService.deleteProject(projectToDelete.id);
-        //     setProjects((prevProjects) =>
-        //         prevProjects.filter((project) => project.id !== projectToDelete.id)
-        //     );
-        //     setError(null);
-        // } catch (err: any) {
-        //     setError(err.message || "Erreur lors de la suppression");
-        //     console.error("Erreur:", err);
-        // } finally {
-        //     setLoading(false);
-        // }
+        try {
+            setLoading(true);
+            const isDelete=await projectService.deleteProject(projectToDelete.id);
+            if(isDelete){
+               setProjects((prevProjects) =>
+                prevProjects.filter((project) => project.id !== projectToDelete.id)
+              );
+            }
+            setError(null);
+        } catch (err: any) {
+            setError(err.message || t('dashboard.errorDelete'));
+            console.error("Erreur:", err);
+        } finally {
+            setLoading(false);
+        }
     }
 
   return (
     <div className="dashboard_container" id="dashboard">
       <div className="stats">
         <Card text={projects.length.toString()  }  color="var(--secondary-color)" size="5rem" />
-        <Card text={'1'} color="var(--tertiary-color)" size="5rem" />
-        <span className="add_project_button">
-          <StyledIconText icon={CirclePlus} light text="Ajouter un projet" />
-        </span>
+        <Card text={views.toString()} color="var(--tertiary-color)" size="5rem" />
+        <StyledIconText 
+          icon={CirclePlus} 
+          light 
+          text={t('dashboard.newProject')}
+          onclick={() => navigation('/projectForm#form')} />
       </div>
       <div className="projects_grid">
         {projects.length === 0 ? (
-          <p>Aucun projet trouvé</p>
+          <p>{t('dashboard.noProject')}</p>
         ) : (
           projects.map((project) => (
             <AdminProjectCard key={project.id} project={project} editAction={handleEdit} deleteAction={handleDelete} />

@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "welcome": "مرحبا !",
+        "bio": "أنا سينيو نوليوغي رينس كيني، طالب في السنة الثالثة من بكالوريوس هندسة البرمجيات في Keyce Informatique. شغوف بتطوير الويب والهواتف المحمولة، أصمم تطبيقات حديثة وعالية الأداء باستخدام Angular وTypeScript وSymfony وFirebase. فضولي ودقيق، أحب الجمع بين التكنولوجيا والتصميم وهندسة البرمجيات لإنشاء حلول مفيدة ومستدامة. طموحي: أن أصبح مهندس برمجيات وأن أساهم في مشاريع مبتكرة ذات تأثير كبير.",
+        "altHomeImage": "صورة الصفحة الرئيسية"
+    },
+    "home": {
+        "errorLoading": "خطأ في التحميل",
+        "projectLoading": "جاري تحميل المشاريع...",
+        "myProjects": "مشاريعي",
+        "noProject": "لم يتم العثور على مشاريع"
+    },
+    "projectForm": {
+        "newProject": "إنشاء مشروع جديد",
+        "title": "العنوان",
+        "titleRequired": "العنوان مطلوب",
+        "description": "الوصف",
+        "descriptionCaracter": "أكثر من 300 حرف",
+        "descriptionRequired": "الوصف مطلوب",
+        "link": "الرابط",
+        "invalidUrl": "رابط غير صالح",
+        "github": "رابط Github",
+        "githubRequired": "رابط github مطلوب",
+        "image": "الصورة",
+        "invalideImage": "نوع صورة غير صالح",
+        "noImage": "لم يتم اختيار ملف"
+    },
+    "dashboard": {
+        "errorLoading": "خطأ في التحميل",
+        "projectLoading": "جاري تحميل المشاريع...",
+        "errorDelete": "خطأ في الحذف",
+        "noProject": "ليس لديك أي مشاريع حتى الآن",
+        "newProject": "إضافة مشروع"
+    },
+    "login": {
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "usernameRequired": "اسم المستخدم مطلوب",
+        "passwordRequired": "كلمة المرور مطلوبة",
+        "passwordCaracter": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+        "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
+        "login": "تسجيل الدخول"
+    },
+    "error": "خطأ",
+    "creer": "إنشاء",
+    "sunmit": "إرسال"
+}

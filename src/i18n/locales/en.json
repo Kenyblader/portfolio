@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "welcome": "Welcome !",
+        "bio": "I am Sineu Nouleughe Reins Keny, a 3rd year Software Engineering Bachelor student at Keyce Informatique. Passionate about web and mobile development, I design modern and high-performance applications with Angular, TypeScript, Symfony and Firebase. Curious and rigorous, I like to combine technology, design and software architecture to create useful and sustainable solutions. My ambition: to become a software architect and contribute to innovative projects with high impact.",
+        "altHomeImage": "Home image"
+    },
+    "home": {
+        "errorLoading": "Error loading",
+        "projectLoading": "Loading projects...",
+        "myProjects": "My Projects",
+        "noProject": "No projects found"
+    },
+    "projectForm": {
+        "newProject": "Create a new project",
+        "title": "Title",
+        "titleRequired": "title required",
+        "description": "Description",
+        "descriptionCaracter": "more than 300 characters",
+        "descriptionRequired": "description required",
+        "link": "Link",
+        "invalidUrl": "invalid link",
+        "github": "Github Link",
+        "githubRequired": "github link required",
+        "image": "Image",
+        "invalideImage": "invalid image type",
+        "noImage": "No file chosen"
+    },
+    "dashboard": {
+        "errorLoading": "Error loading",
+        "projectLoading": "Loading projects...",
+        "errorDelete": "Error deleting",
+        "noProject": "You don't have any projects yet",
+        "newProject": "Add a project"
+    },
+    "login": {
+        "username": "Username",
+        "password": "Password",
+        "usernameRequired": "Username is required",
+        "passwordRequired": "Password is required",
+        "passwordCaracter": "password must be at least 6 characters",
+        "invalidCredentials": "Invalid username or password",
+        "login": "Login"
+    },
+    "error": "Error",
+    "creer": "create",
+    "sunmit": "Submit"
+}

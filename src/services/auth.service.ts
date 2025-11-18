@@ -1,27 +1,30 @@
-import User from "../models/user";
+
+import { authHook } from "../utils/authHook";
 import api from "./api";
 
 class AuthService {
-  private isAuthenticated: boolean;
+ 
 
-  constructor() {
-    this.isAuthenticated = false;
-  }
+
 
   async login(username: string, password: string): Promise<boolean> {
-    const response = await api.post('/auth/login', { username, password });
-    this.isAuthenticated = response.data.isloggedIn;
-    return this.isAuthenticated;
+    try {
+       const response = await api.post('/auth/login', { username, password });
+      const isAuthenticated = response.data.isloggedIn;
+      if(isAuthenticated) authHook.logInUser(response.data.token);
+      return isAuthenticated;
+    } catch (error) {
+      console.error(error)
+      return false;
+    }
   }
 
-  async logout() {
-    const response = await api.post('/auth/logout');
-    this.isAuthenticated = response.data.isAuthenticated;
+  logout() {
+    // await api.post('/auth/logout');
+    authHook.logOut();
   }
 
-  isLoggedIn() {
-    return this.isAuthenticated;
-  }
+  
 
   async getProfileData(){
     const response = await api.get('/auth/profile');

@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "welcome": "Willkommen !",
+        "bio": "Ich bin Sineu Nouleughe Reins Keny, Student im 3. Jahr des Bachelor-Studiengangs Software Engineering an der Keyce Informatique. Leidenschaftlich für Web- und Mobile-Entwicklung, entwerfe ich moderne und leistungsstarke Anwendungen mit Angular, TypeScript, Symfony und Firebase. Neugierig und präzise kombiniere ich gerne Technologie, Design und Softwarearchitektur, um nützliche und nachhaltige Lösungen zu schaffen. Mein Ziel: Softwarearchitekt zu werden und zu innovativen Projekten mit großer Wirkung beizutragen.",
+        "altHomeImage": "Startseite Bild"
+    },
+    "home": {
+        "errorLoading": "Fehler beim Laden",
+        "projectLoading": "Projekte werden geladen...",
+        "myProjects": "Meine Projekte",
+        "noProject": "Keine Projekte gefunden"
+    },
+    "projectForm": {
+        "newProject": "Neues Projekt erstellen",
+        "title": "Titel",
+        "titleRequired": "Titel erforderlich",
+        "description": "Beschreibung",
+        "descriptionCaracter": "mehr als 300 Zeichen",
+        "descriptionRequired": "Beschreibung erforderlich",
+        "link": "Link",
+        "invalidUrl": "ungültiger Link",
+        "github": "Github-Link",
+        "githubRequired": "Github-Link erforderlich",
+        "image": "Bild",
+        "invalideImage": "ungültiger Bildtyp",
+        "noImage": "Keine Datei ausgewählt"
+    },
+    "dashboard": {
+        "errorLoading": "Fehler beim Laden",
+        "projectLoading": "Projekte werden geladen...",
+        "errorDelete": "Fehler beim Löschen",
+        "noProject": "Sie haben noch keine Projekte",
+        "newProject": "Projekt hinzufügen"
+    },
+    "login": {
+        "username": "Benutzername",
+        "password": "Passwort",
+        "usernameRequired": "Benutzername ist erforderlich",
+        "passwordRequired": "Passwort ist erforderlich",
+        "passwordCaracter": "Passwort muss mindestens 6 Zeichen haben",
+        "invalidCredentials": "Ungültiger Benutzername oder Passwort",
+        "login": "Anmelden"
+    },
+    "error": "Fehler",
+    "creer": "erstellen",
+    "sunmit": "Absenden"
+}

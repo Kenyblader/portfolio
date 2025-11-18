@@ -5,9 +5,10 @@ interface StyleIconTextProps {
   size?: number;
   light?: boolean;
   text: string;
+  onclick?:(data:any)=>void
 }
 
-const StyledIconText = ({ icon:Icon, size = 30, light=false, text }: StyleIconTextProps) => {
+const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick }: StyleIconTextProps) => {
 
     const style={
     iconContainer: {
@@ -35,7 +36,7 @@ const StyledIconText = ({ icon:Icon, size = 30, light=false, text }: StyleIconTe
 }
 
   return (
-    <span style={style.iconContainer}>
+    <span style={style.iconContainer} onClick={onclick}>
     
       <Icon style={style.icon} strokeWidth={3}  />
       <span style={style.text}>{text}</span>

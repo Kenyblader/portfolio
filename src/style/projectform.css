@@ -1,0 +1,97 @@
+.project_form_container {
+  padding: 2rem;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+
+  background-color: var(--background-color);
+}
+
+.project_form_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  border: var(--card-border) 1px solid;
+  border-radius: 20px;
+  background-color: var(--card-background);
+  box-shadow: 0 0 30px var(--shadow-color);
+}
+
+.project_form_container form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.project_form_container form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.project_form_container form input,
+.project_form_container form textarea {
+  padding: 0.8rem;
+  border: var(--card-border) 1px solid;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  resize: vertical;
+}
+
+.project_form_container form textarea {
+  min-height: 5rem;
+}
+
+.project_form_container form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-header-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form_group_file {
+  margin-bottom: 1rem;
+}
+.form_group_file label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.file_input_container {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.file_input_container img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.file_input_container input {
+  flex: 1;
+}
+
+.file_input_container span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error  {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tertiary-color);
+}

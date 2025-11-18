@@ -1,7 +1,6 @@
 nav{
   background-color: var(--header-background-color);
   padding: 1rem;
-
   color : var(--text-header-color);
   clip-path: ellipse(100% 100%  at 50% 0%);
 }
@@ -10,13 +9,18 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 } 
+
+.header_left{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
 
 .header_left a {
   color: var(--text-header-color);
   text-decoration: none;
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   font-weight: bold;
 }
 
@@ -26,7 +30,6 @@ nav{
   justify-content: center;
   gap: 5rem;
   align-items: center;
-
 }
 
 .nav_body img {
@@ -44,4 +47,5 @@ nav{
 .nav_text p {
   font-size: 1.2rem;
   line-height: 1.6;
+  text-align: justify;
 }

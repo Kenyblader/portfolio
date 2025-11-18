@@ -46,7 +46,6 @@ class Project{
 
 
   static fromJSON(json: IProject): Project {
-    console.log('fromJSON called with:', json);
     return new Project(
       json.id,
       json.title,

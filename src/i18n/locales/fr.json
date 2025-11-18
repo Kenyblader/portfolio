@@ -1,0 +1,48 @@
+{
+    "nav":{
+        "welcome":"Bienvenue !",
+        "bio":"Je suis Sineu Nouleughe Reins Keny, étudiant en Bachelor 3 Génie Logiciel à Keyce Informatique. Passionné par le développement web et mobile, je conçois des applications modernes et performantes avec Angular, TypeScript, Symfony et Firebase. Curieux et rigoureux, j’aime allier technologie, design et architecture logicielle pour créer des solutions utiles et durables. Mon ambition : devenir architecte logiciel et contribuer à des projets innovants à fort impact.",
+        "altHomeImage":"Image d'acceuil"
+    },
+    "home":{
+        "errorLoading":"Erreur lors du chargement",
+        "projectLoading":"Chargement des projets...",
+        "myProjects":"Mes Projets",
+        "noProject":"Aucun projet trouvé"
+    },
+    "projectForm":{
+        "newProject":"Créer un nouveau projet",
+        "title":"Titre",
+        "titleRequired":"titre obligatoire",
+        "description":"Description",
+        "descriptionCaracter":"plus de 300 caracteres",
+        "descriptionRequired":"description obligatoire",
+        "link":"Lien",
+        "invalidUrl":"lien invalide",
+        "github":"Lien Github",
+        "githubRequired": "lien github obligatoire",
+        "image":"Image",
+        "invalideImage":"type d'image invalide",
+        "noImage":"Aucun fichier choisi"
+    },
+    "dashboard":{
+        "errorLoading":"Erreur lors du chargement",
+        "projectLoading":"Chargement des projets...",
+        "errorDelete":"Erreur lors de la suppression",
+        "noProject":"Vous n'avez aucin projet pour l'instant",
+        "newProject":"Ajouter un projet"
+    },
+    "login":{
+        "username":"Nom Utilisateur",
+        "password":"Mot de Passe",
+        "usernameRequired":"Nom Utilisateur est obligatoire",
+        "passwordRequired":"Mot de Passe est obligatoire",
+        "passwordCaracter":"mot de passe ne peut avoir moins de 6 caracteres",
+        "invalidCredentials":"Nom utilisateur ou Mot de passe invalide",
+        "login":"Se connecter"
+    },
+
+    "error":"Erreur",
+    "creer":"creer",
+    "sunmit":"Soumettre"
+}

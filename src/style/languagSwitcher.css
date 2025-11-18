@@ -1,0 +1,23 @@
+.languages_container{
+    flex-direction: column;
+    padding: 0.5rem 0;
+    background-color: var(--icons-background-color);
+    text-align:  center;
+    color: var(--text-body-color);
+    cursor: pointer; 
+    display: none;
+}
+
+.languages_container.active{
+    display:  flex;
+      
+}
+
+/* .languages_container span{
+    border-bottom: 1px solid var(--icons-hover-color);
+} */
+
+.languages_container span:hover{
+    background-color: var(--icons-color);
+    color: var(--text-header-color);
+}

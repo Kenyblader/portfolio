@@ -13,5 +13,16 @@ class User {
         this.gitHub = gitHub;
         this.linkedin = linkedin;
     }
+
+    static fromJson(json:any):User{
+        console.log("user",json)
+        return new User(
+            json.id,
+            json.username,
+            json.email,
+            json.github,
+            json.linkedin
+        )
+    }
 }
 export default User;

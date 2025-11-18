@@ -12,4 +12,39 @@ code {
     monospace;
 }
 
+/* src/index.css */
+
+/* Direction par défaut */
+[dir="ltr"] {
+  text-align: left;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Marges et padding inversés en RTL */
+[dir="rtl"] .ml-2 {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="ltr"] .ml-2 {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Navigation inversée en RTL */
+[dir="rtl"] nav {
+  flex-direction: row-reverse;
+}
+
+/* Polices pour l'arabe */
+[lang="ar"] {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"); 
+
  

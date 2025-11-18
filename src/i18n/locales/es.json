@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "welcome": "¡Bienvenido !",
+        "bio": "Soy Sineu Nouleughe Reins Keny, estudiante de tercer año de Licenciatura en Ingeniería de Software en Keyce Informatique. Apasionado por el desarrollo web y móvil, diseño aplicaciones modernas y de alto rendimiento con Angular, TypeScript, Symfony y Firebase. Curioso y riguroso, me gusta combinar tecnología, diseño y arquitectura de software para crear soluciones útiles y sostenibles. Mi ambición: convertirme en arquitecto de software y contribuir a proyectos innovadores de alto impacto.",
+        "altHomeImage": "Imagen de inicio"
+    },
+    "home": {
+        "errorLoading": "Error al cargar",
+        "projectLoading": "Cargando proyectos...",
+        "myProjects": "Mis Proyectos",
+        "noProject": "No se encontraron proyectos"
+    },
+    "projectForm": {
+        "newProject": "Crear un nuevo proyecto",
+        "title": "Título",
+        "titleRequired": "título requerido",
+        "description": "Descripción",
+        "descriptionCaracter": "más de 300 caracteres",
+        "descriptionRequired": "descripción requerida",
+        "link": "Enlace",
+        "invalidUrl": "enlace inválido",
+        "github": "Enlace de Github",
+        "githubRequired": "enlace de github requerido",
+        "image": "Imagen",
+        "invalideImage": "tipo de imagen inválido",
+        "noImage": "Ningún archivo seleccionado"
+    },
+    "dashboard": {
+        "errorLoading": "Error al cargar",
+        "projectLoading": "Cargando proyectos...",
+        "errorDelete": "Error al eliminar",
+        "noProject": "Aún no tienes ningún proyecto",
+        "newProject": "Añadir un proyecto"
+    },
+    "login": {
+        "username": "Nombre de usuario",
+        "password": "Contraseña",
+        "usernameRequired": "El nombre de usuario es requerido",
+        "passwordRequired": "La contraseña es requerida",
+        "passwordCaracter": "la contraseña debe tener al menos 6 caracteres",
+        "invalidCredentials": "Nombre de usuario o contraseña inválidos",
+        "login": "Iniciar sesión"
+    },
+    "error": "Error",
+    "creer": "crear",
+    "sunmit": "Enviar"
+}

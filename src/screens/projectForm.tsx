@@ -1,7 +1,9 @@
-import { title } from "process";
+
 import { useState } from "react";
-import Project, { IProject } from "../models/project";
+import  { IProject } from "../models/project";
 import { projectService } from "../services/project.service";
+import '../style/projectform.css'
+import { useTranslation } from "react-i18next";
 
 const ProjectForm = () => {
 
@@ -14,26 +16,39 @@ const ProjectForm = () => {
         date: new Date().toISOString().split('T')[0],
     });
     const [loading, setLoading] = useState(false);
+    const [touched, setTouched] = useState<Record<string, boolean>>({});
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const {t}= useTranslation();
+
+    function isUrl(str: string): boolean {
+        try {
+            new URL(str);
+            return true;
+        } catch {
+            return false;
+        }
+    }
 
     function validate(name: string, value?: string, file?: File): string  {
         switch (name) {
             case 'title':
-                if (!value) return 'Title is required';
+                if (!value) return t('projectForm.titleRequired');
                 else return '';
             case 'description':
-                if (!value) return 'Description is required';
+                if (!value) return t('projectForm.descriptionRequired');
+                if (value.length>300) return t('projectForm.descriptionCaracter')
                 else return '';
             case 'link':
-                if (!value) return 'Link is required';
+                if (value && !isUrl(value)) return t('projectForm.invalidUrl');
                 else return '';
             case 'github':
-                if (!value) return 'GitHub link is required';
+                if (!value) return t('projectForm.githubRequired');
+                else if (!isUrl(value)) return t('projectForm.invalidUrl');
                 else return '';
             case 'img':
                 if (file) {
                     const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
-                    if (!validTypes.includes(file.type)) return 'Invalid image type';
+                    if (!validTypes.includes(file.type)) return t('projectForm.invalidImage');
                     else return '';
                 } else return ""
             default:
@@ -43,6 +58,7 @@ const ProjectForm = () => {
 
     function handleBlur (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const { name, value } = e.target;
+        setTouched(prev => ({ ...prev, [name]: true }));
         const error = validate(name, value);
         setErrors(prev => ({ ...prev, [name]: error }));
     }
@@ -53,8 +69,10 @@ const ProjectForm = () => {
             ...prev,
             [name]: value
         }));
-        const error = validate(name, value);
-        setErrors(prev => ({ ...prev, [name]: error }));
+       
+           const error = validate(name, value);
+           setErrors(prev => ({ ...prev, [name]: error }));
+    
     }
 
     function handleFileChange (e: React.ChangeEvent<HTMLInputElement>) {
@@ -63,6 +81,7 @@ const ProjectForm = () => {
             ...prev,
             img: file
         }));
+        
     }
 
     async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
@@ -88,6 +107,7 @@ const ProjectForm = () => {
         try {
             setLoading(true);
             const data= await projectService.createProject(formData);
+            console.log('Projet créé:', data);
             setFormData({
                 title: '',
                 description: '',
@@ -105,19 +125,42 @@ const ProjectForm = () => {
     }
 
   return (
-    <div>
-      <h2>Créer un nouveau projet</h2>
-      <form>
+    <div className="project_form_container">
+
+      <form  onSubmit={handleSubmit} id="form">
+        <h2>{t('projectForm.newProject')}</h2>
         <div>
-          <label htmlFor="title">Titre</label>
-          <input type="text" id="title" name="title" required />
+          <label htmlFor="title">{t('projectForm.title')}</label>
+          <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} onBlur={handleBlur} />
+          <span className="error">{errors.title}</span>
         </div>
         <div>
-          <label htmlFor="description">Description</label>
-          <textarea id="description" name="description" required></textarea>
+          <label htmlFor="description">{t('projectForm.description')}</label>
+          <textarea id="description" name="description" value={formData.description} onChange={handleChange} onBlur={handleBlur}></textarea>
+          <span className="error">{errors.description}</span>
         </div>
-        <button type="submit">Créer</button>
+        <div>
+          <label htmlFor="link">{t('projectForm.link')}</label>
+          <input type="url" id="link" name="link" value={formData.link} onChange={handleChange} onBlur={handleBlur} />
+          <span className="error">{errors.link}</span>
+        </div>
+        <div>
+          <label htmlFor="github">{t('projectForm.github')}</label>
+          <input type="url" id="github" name="github" value={formData.github} onChange={handleChange} onBlur={handleBlur} />
+          <span className="error">{errors.github}</span>
+        </div>
+        <div className="form_group_file">
+          <label htmlFor="img">{t('projectForm.image')}</label>
+          <div className="file_input_container">
+            <input type="file" id="img" name="img" accept="image/*" onChange={handleFileChange} />
+            <span>{formData.img ? <><img src={URL.createObjectURL(formData.img)}  alt="Aperçu" /> { formData.img.size / (1024 * 1024)}MB</>  : t('projectForm.noImage')}</span>
+          </div>
+          <span className="error">{errors.img}</span>
+        </div>
+        <button id="form" type="submit">{t('creer')}</button>
       </form>
     </div>
   );
 }
+
+export default ProjectForm;
