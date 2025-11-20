@@ -112,12 +112,15 @@ const Dashboard = () => {
         {projects.length === 0 ? (
           <p>{t("dashboard.noProject")}</p>
         ) : (
-          projects.map((project) => (
+          projects.map((project,index) => (
             <AdminProjectCard
               key={project.id}
               project={project}
               editAction={handleEdit}
-              deleteAction={()=>{setConfirmOpen(true)}}
+              deleteAction={()=>{
+                setSelectedIndex(index)
+                setConfirmOpen(true)
+              }}
             />
           ))
         )}
