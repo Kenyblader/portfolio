@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from './utils/globalStateContext';
+import { MessageProvider } from './utils/messageContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,7 +19,9 @@ root.render(
       enableSystem
       disableTransitionOnChange= {false}>
         <LoadingProvider>
-          <App />
+          <MessageProvider>
+            <App />
+          </MessageProvider>
         </LoadingProvider>
       </ThemeProvider>
   </React.StrictMode>

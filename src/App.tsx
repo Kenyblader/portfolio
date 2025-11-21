@@ -13,7 +13,7 @@ import ProjectForm from './screens/projectForm';
 import { LanguageSwitcher } from './components/lngSwitcher';
 import { useTranslation } from 'react-i18next';
 import ProtectedRoute from './components/protectedRoute';
-import { authHook } from './utils/authHook';
+import { authHook } from './utils/hooks/authHook';
 import { analiticsService } from './services/analitics.service';
 import SplitTextAnimation from './components/blenderAnimation';
 import FadeUpAnimation from './components/faceUpAnimation';
@@ -85,7 +85,7 @@ function App() {
             <SplitTextAnimation text={t('nav.welcome')}/>
             <FadeUpAnimation text={t('nav.bio')}/>
           </div>
-          <img src={home_image} alt={t('nav.altHomeImage')}  />
+          <img src={home_image} className='laptop-image' alt={t('nav.altHomeImage')}  />
         </div>
     </nav>
     

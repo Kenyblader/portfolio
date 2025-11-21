@@ -9,9 +9,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute=({children,islog}:ProtectedRouteProps)=>{
 
     const location= useLocation();
-
-   
-
+    
     if (islog)
         return children;
     else

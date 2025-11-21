@@ -5,7 +5,7 @@ import fr from './locales/fr.json'
 import en from './locales/en.json'
 import es from './locales/es.json'
 import arb from './locales/arb.json'
-import alm from './locales/alm.json'
+import de from './locales/alm.json'
 
 
 i18n
@@ -17,9 +17,10 @@ i18n
       en: { translation: en },
       es: { translation: es },
       ar: { translation: arb },
-      al: { translation: alm}
+      de: { translation: de },
     },
     fallbackLng: 'fr',
+    supportedLngs: ['fr', 'en', 'es', 'ar', 'de'],
     debug: false,
     interpolation: {
       escapeValue: false,
@@ -35,6 +36,7 @@ i18n.on('languageChanged', (lng) => {
   const dir = lng === 'ar' ? 'rtl' : 'ltr';
   document.documentElement.setAttribute('dir', dir);
   document.documentElement.setAttribute('lang', lng);
+  document.documentElement.setAttribute('translate', 'no');
 });
 
 export default i18n;

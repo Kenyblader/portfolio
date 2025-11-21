@@ -1,5 +1,5 @@
 
-import { authHook } from "../utils/authHook";
+import { authHook } from "../utils/hooks/authHook";
 import api from "./api";
 
 class AuthService {

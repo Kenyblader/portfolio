@@ -1,0 +1,57 @@
+.message-container {
+  position: fixed;
+  top: 15px; /* → mets bottom:15px si tu veux en bas */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none; /* n'empêche pas de cliquer derrière */
+}
+
+.message-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 320px;
+  max-width: 550px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+
+  pointer-events: auto; /* permet de cliquer sur le bouton close */
+}
+
+/* Types */
+.message-box.info {
+  background: #2563eb; /* bleu */
+}
+
+.message-box.success {
+  background: #16a34a; /* vert */
+}
+
+.message-box.error {
+  background: #dc2626; /* rouge */
+}
+
+/* Close button */
+.close-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+.icon.info {
+  fill: #93c5fd; /* bleu clair */
+}

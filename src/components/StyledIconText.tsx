@@ -17,6 +17,7 @@ const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick }: St
         justifyContent: 'center',
         borderRadius: '20px',
         padding: '4px 8px',
+        cursor: 'pointer',
         backgroundColor: light ? 'var(--primary-color)' : 'var(--icons-background-color)',
         transition: 'background-color 0.3s',
         '&:hover': {

@@ -31,7 +31,6 @@ class AnaliticsService{
         try {
           await this.addviewer()
           sessionStorage.setItem(this.VISIT_KEY, today);
-          console.log('✅ Nouvelle visite du jour enregistrée');
         } catch (error) {
           console.error('❌ Erreur compteur:', error);
         }

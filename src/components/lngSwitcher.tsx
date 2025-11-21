@@ -9,7 +9,7 @@ const languages = [
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Español' },
   { code: 'ar', name: 'العربية' },
-  { code: 'al', name: 'Allemand' }
+  { code: 'de', name: 'Deutsch' }
 ];
 
 
@@ -17,7 +17,6 @@ const languages = [
 export const LanguageSwitcher =() =>{
   const [active,setActive]= useState(false)
   const { i18n } = useTranslation();
-
   return (
     <div className='languageSwitcher' onClick={()=>{setActive(!active); }} >
       <StyledIconText icon={Globe} text={i18n.language} />

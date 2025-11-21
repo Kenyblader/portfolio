@@ -4,7 +4,7 @@ import { projectService } from '../services/project.service';
 import { useState, useEffect } from 'react';
 import Project from '../models/project';
 import { useTranslation } from 'react-i18next';
-import { authHook } from '../utils/authHook';
+import { authHook } from '../utils/hooks/authHook';
 
 
 const Home = () => {
