@@ -27,7 +27,7 @@ api.interceptors.request.use(
 api.interceptors.response.use(
     (response)=>{
         loadingService.hide()
-        messagingService.addMessage("Request successful", "success");
+        // messagingService.addMessage("Request successful", "success");
         return response;
     },
     async (error:AxiosError)=>{

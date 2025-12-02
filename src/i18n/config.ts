@@ -7,6 +7,13 @@ import es from './locales/es.json'
 import arb from './locales/arb.json'
 import de from './locales/alm.json'
 
+const changeLang = (lng: string) => {
+  const dir = lng === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.setAttribute('dir', dir);
+  document.documentElement.setAttribute('lang', lng);
+  document.documentElement.setAttribute('translate', 'no');
+};
+
 
 i18n
   .use(LanguageDetector)
@@ -29,14 +36,18 @@ i18n
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
+  },()=>{
+    const currentLanguage = i18n.language || window.localStorage.i18nextLng || 'fr';
+    changeLang(currentLanguage);
   });
 
 // Gérer le RTL pour l'arabe
 i18n.on('languageChanged', (lng) => {
-  const dir = lng === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.setAttribute('dir', dir);
-  document.documentElement.setAttribute('lang', lng);
-  document.documentElement.setAttribute('translate', 'no');
+  changeLang(lng);
 });
+
+
+
+
 
 export default i18n;
