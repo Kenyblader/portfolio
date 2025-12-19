@@ -8,7 +8,9 @@ export interface IProject {
   github?: string;
 }
 
+export type CreateProjectDTO = Omit<IProject, "id" | "image"> & { img: File | null; };
 
+export type EditProjectDTO = Partial<IProject> & { img: File | null, id: string} 
 
 class Project{
   id: string;
@@ -40,11 +42,7 @@ class Project{
       github: this.github
     };
   }
-
   
-  
-
-
   static fromJSON(json: IProject): Project {
     return new Project(
       json.id,

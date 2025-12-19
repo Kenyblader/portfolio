@@ -21,8 +21,8 @@ const AdminProjectCard = ({project, editAction, deleteAction}: {project: Project
       <p>{troncedDescription}</p>
       <div className="project-footer">
         <div className="project-links">
-         <span   onClick={() => editAction(project)}><StyledIcon icon={Edit}  light={true} size={30}   /></span>
-         <span onClick={() => deleteAction(project)}><StyledIcon icon={Trash} light={true} size={30} /></span>
+          <StyledIcon icon={Edit}  light={true} size={30} onClick={() => editAction(project)}  />
+          <StyledIcon icon={Trash} light={true} size={30} onClick={() => deleteAction(project)} />
        </div>
         <div className="project-date">{project.date.toDateString()}</div>
       </div>

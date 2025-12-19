@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Project from "../models/project";
-import { projectService } from "../services/project.service";
 import AdminProjectCard from "../components/adminProjectCard";
 import Card from "../components/card";
 import "../style/dashboard.css";
@@ -10,40 +9,26 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { analiticsService } from "../services/analitics.service";
 import ConfirmModal from "../components/confirmPopup";
+import useProject from "../utils/hooks/projectHook";
 
 const Dashboard = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  // const [projects, setProjects] = useState<Project[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [views, setviews] = useState(0);
   const [isConfirm, setConfirmOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigation = useNavigate();
   const { t } = useTranslation();
+  const { projects, deleteProject} = useProject();
 
   useEffect(() => {
-    async function getProjects() {
-      try {
-        setLoading(true);
-        const projects = await projectService.getProjects();
-        setProjects(projects);
-        setError(null);
-      } catch (err: any) {
-        setError(err.message || t("dashboard.errorLoading"));
-        console.error("Erreur:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
     async function getView() {
       const view = await analiticsService.getViewer();
       setviews(view);
     }
-
-    getProjects();
     getView();
-  }, []); // [] = exécute une seule fois au montage
+  }, [projects]); // [] = exécute une seule fois au montage
 
   if (loading) {
     return (
@@ -60,11 +45,7 @@ const Dashboard = () => {
   }
 
   function handleEdit(updatedProject: Project): void {
-    setProjects((prevProjects) =>
-      prevProjects.map((project) =>
-        project.id === updatedProject.id ? updatedProject : project
-      )
-    );
+    navigation('/editForm/'+updatedProject.id)
   }
 
   async function handleDelete(): Promise<void> {
@@ -72,19 +53,13 @@ const Dashboard = () => {
 
     console.log("Suppression du projet :", projectToDelete);
     try {
-      setLoading(true);
-      const isDelete = await projectService.deleteProject(projectToDelete.id);
-      if (isDelete) {
-        setProjects((prevProjects) =>
-          prevProjects.filter((project) => project.id !== projectToDelete.id)
-        );
-      }
+      deleteProject(projectToDelete.id)
       setError(null);
     } catch (err: any) {
       setError(err.message || t("dashboard.errorDelete"));
-      console.error("Erreur:", err);
+      // console.error("Erreur:", err);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   }
 

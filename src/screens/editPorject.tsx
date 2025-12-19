@@ -1,25 +1,50 @@
-
-import { useState } from "react";
-import  { IProject } from "../models/project";
-import '../style/projectform.css'
+import { useEffect, useState } from "react"
+import { IProject } from "../models/project";
 import { useTranslation } from "react-i18next";
 import useProject from "../utils/hooks/projectHook";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ProjectForm = () => {
+const EditProject = () => {
 
-    const [formData, setFormData] = useState<Omit<IProject, 'id' | 'image'> & { img: File | null }>({
-        title: '',
-        description: '',
-        link: '',
-        github: '',
-        img: null,
-        date: new Date().toISOString().split('T')[0],
+    const [formData, setFormData] = useState<Omit<IProject, 'id' > & { img: File | null }>({
+            title: '',
+            description: '',
+            link: '',
+            github: '',
+            img: null,
+            date: new Date().toISOString().split('T')[0]
     });
-    const [loading, setLoading] = useState(false);
-    const [touched, setTouched] = useState<Record<string, boolean>>({});
+
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [touched, setTouched] = useState<Record<string, boolean>>({});
     const {t}= useTranslation();
-    const { addProject } = useProject();
+    const {id} = useParams();
+    const navigation = useNavigate();
+    const { editProject, getProject,loading } = useProject();
+
+    useEffect(() => {
+        if (!id || loading) return;
+
+        const project = getProject(id);
+        if (!project) return;
+
+        setFormData(prev => ({
+            title: project.title,
+            description: project.description,
+            link: project.link ?? prev.link,
+            github: project.github ?? prev.github,
+            img: null,
+            date: new Date(project.date).toISOString().split('T')[0],
+            image: project.image
+        }));
+    }, [id, loading, getProject]);
+
+if (loading) {
+  return <div>Chargement...</div>;
+}
+
+    
+
 
     function isUrl(str: string): boolean {
         try {
@@ -78,9 +103,10 @@ const ProjectForm = () => {
 
     function handleFileChange (e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files ? e.target.files[0] : null;
+
         setFormData(prev => ({
             ...prev,
-            img: file
+            img: file,
         }));
         
     }
@@ -106,26 +132,18 @@ const ProjectForm = () => {
         if (Object.keys(newErrors).length > 0) return;
 
         try {
-            setLoading(true);
-            const data= addProject(formData);
-            console.log('Projet créé:', data);
-            setFormData({
-                title: '',
-                description: '',
-                link: '',
-                github: '',
-                img: null,
-                date: new Date().toISOString().split('T')[0],
-            });
+            
+            const data= editProject({...formData, id: id as string});
+            
+            console.log('Projet edite:', data);
             setErrors({});
+            navigation(-1);
         } catch (err: any) {
             console.error('Erreur lors de la création du projet:', err);
-        } finally {
-            setLoading(false);
-        }
+        } 
     }
 
-  return (
+    return (
     <div className="project_form_container">
 
       <form  onSubmit={handleSubmit} id="form">
@@ -154,14 +172,24 @@ const ProjectForm = () => {
           <label htmlFor="img">{t('projectForm.image')}</label>
           <div className="file_input_container">
             <input type="file" id="img" name="img" accept="image/*" onChange={handleFileChange} />
-            <span>{formData.img ? <><img src={URL.createObjectURL(formData.img)}  alt="Aperçu" /> { formData.img.size / (1024 * 1024)}MB</>  : t('projectForm.noImage')}</span>
+            <span>
+                {
+                formData.img ? (
+                    <img src={URL.createObjectURL(formData.img)} alt="Aperçu"  />
+                ) :
+                formData.image ? (
+                    <img src={formData.image} alt="Aperçu" />
+                )  : (
+                    t('projectForm.noImage')
+                )}
+                </span>
+
           </div>
           <span className="error">{errors.img}</span>
         </div>
         <button id="form" type="submit">{t('creer')}</button>
       </form>
-    </div>
-  );
+    </div>)
 }
 
-export default ProjectForm;
+export default EditProject;

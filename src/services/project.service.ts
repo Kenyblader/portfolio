@@ -1,5 +1,5 @@
 import axios from "axios";
-import Project, { IProject } from "../models/project";
+import Project, { EditProjectDTO, IProject } from "../models/project";
 import api from "./api";
 
 class ProjectService {
@@ -52,6 +52,39 @@ class ProjectService {
         }
     }
 
+    async updatePRoject(formData: EditProjectDTO): Promise<number> {
+        try {
+            const data = new FormData();
+            if(formData.title)
+                data.append('title', formData.title);
+            if(formData.description)
+                data.append('description', formData.description);
+            if(formData.date)
+                data.append('date',formData.date);
+            if (formData.link) {
+                data.append('link', formData.link);
+            }
+            if (formData.github) {
+                data.append('github', formData.github);
+            }
+            if (formData.img) {
+                data.append('img', formData.img);
+            }
+            const response = await api.patch('/project/'+formData.id, data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+
+            return response.data;
+
+        } catch (error) {
+            if(axios.isAxiosError(error)) console.error("erreur backend", error.name)
+            else console.error(error);
+            return -1;
+        }
+    }
+
 }
 
-export const projectService = new ProjectService();
+export  const projectService = new ProjectService();

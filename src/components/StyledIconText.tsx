@@ -5,10 +5,11 @@ interface StyleIconTextProps {
   size?: number;
   light?: boolean;
   text: string;
-  onclick?:(data:any)=>void
+  onclick?:(data:any)=>void,
+  className?: string
 }
 
-const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick }: StyleIconTextProps) => {
+const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick, className }: StyleIconTextProps) => {
 
     const style={
     iconContainer: {
@@ -37,7 +38,7 @@ const StyledIconText = ({ icon:Icon, size = 30, light=false, text, onclick }: St
 }
 
   return (
-    <span  style={style.iconContainer} onClick={onclick}>
+    <span className={className}  style={style.iconContainer} onClick={onclick}>
     
       <Icon style={style.icon} strokeWidth={3}  />
       <span style={style.text}>{text}</span>

@@ -19,6 +19,7 @@ import SplitTextAnimation from './components/blenderAnimation';
 import FadeUpAnimation from './components/faceUpAnimation';
 import ThemeToggle from './components/toggleThemeButton';
 import GlobalLoading from './components/GlobaloLoading';
+import EditProject from './screens/editPorject';
 
 function App() {
 
@@ -105,7 +106,13 @@ function App() {
             <ProjectForm />
           </ProtectedRoute>
         } />
+        <Route path="/editForm/:id" element={
+          <ProtectedRoute islog={isLog}>
+            <EditProject/>
+          </ProtectedRoute>
+        } />
         </Routes>
+
       </div>
    </BrowserRouter>
    </>

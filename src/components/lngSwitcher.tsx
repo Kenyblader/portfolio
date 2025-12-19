@@ -19,7 +19,7 @@ export const LanguageSwitcher =() =>{
   const { i18n } = useTranslation();
   return (
     <div className='languageSwitcher' onClick={()=>{setActive(!active); }} >
-      <StyledIconText icon={Globe} text={i18n.language} />
+      <StyledIconText className="lngIcon" icon={Globe} text={i18n.language} />
       <div className={`languages_container ${active?'active': ''}`}>
         {
           languages.map((lang)=>(

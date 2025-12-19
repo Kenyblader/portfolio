@@ -7,24 +7,27 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from './utils/globalStateContext';
 import { MessageProvider } from './utils/messageContext';
+import { ProjectProvider } from './utils/projectContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ThemeProvider
       attribute="class"
-      defaultTheme='system'
+      defaultTheme='dark'
       enableSystem
       disableTransitionOnChange= {false}>
         <LoadingProvider>
           <MessageProvider>
-            <App />
+            <ProjectProvider>
+              <App />
+            </ProjectProvider>
           </MessageProvider>
         </LoadingProvider>
       </ThemeProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
