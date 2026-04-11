@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import Project, { CreateProjectDTO, EditProjectDTO, IProject } from "../models/project";
 import { projectService } from "../services/project.service";
+import { datas } from "../assets/data/datas";
 
 export interface ProjetContextType {
     projects: Project[];
@@ -26,7 +27,9 @@ export const ProjectProvider = ({children}: {children: React.ReactNode }) =>{
     }
 
     useEffect(()=>{
-        load();
+        // load();
+        const tmp= [...datas.projects].map(proj=> Project.fromJSON(proj));
+        setProjects([...tmp]);
     },[]);
 
     function  addProject(formData: CreateProjectDTO){

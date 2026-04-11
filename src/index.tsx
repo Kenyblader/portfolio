@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from './utils/globalStateContext';
 import { MessageProvider } from './utils/messageContext';
 import { ProjectProvider } from './utils/projectContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,7 +23,9 @@ root.render(
         <LoadingProvider>
           <MessageProvider>
             <ProjectProvider>
-              <App />
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
             </ProjectProvider>
           </MessageProvider>
         </LoadingProvider>
