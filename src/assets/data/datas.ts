@@ -120,5 +120,33 @@ export const datas = {
         "createdAt": "2026-04-06T14:40:10.000Z",
         "updatedAt": "2026-04-06T14:40:55.000Z",
         "date": "2026-04-06T14:40:10.000Z"
-    }]
+    }],
+    about: {
+    quote: {
+        before: "Je ne code pas juste des apps — je construis des ",
+        highlight: "expériences",
+        after: " qui ont du sens."
+    },
+    sub: "Développeur fullstack basé à Paris, passionné par l'intersection entre design, technologie et impact réel.",
+    cards: [
+      {
+        icon: '👤',
+        title: 'Qui je suis',
+        text: "Je m'appelle Reins Keny, développeur fullstack avec une vraie sensibilité pour le design. J'aime transformer des idées complexes en interfaces simples et élégantes.",
+        tags: []
+      },
+      {
+        icon: '⚡',
+        title: 'Ce qui me passionne',
+        text: "L'intersection entre code et créativité. Les animations bien pensées, les architectures propres, et les projets qui résolvent de vrais problèmes.",
+        tags: ['UI/UX', 'Open source', 'IA']
+      },
+      {
+        icon: '🤝',
+        title: 'Ma façon de travailler',
+        text: "Code propre, communication directe, livraison fiable. Je préfère poser les bonnes questions plutôt que de foncer dans la mauvaise direction.",
+        tags: []
+      }
+    ]
+  },
 };

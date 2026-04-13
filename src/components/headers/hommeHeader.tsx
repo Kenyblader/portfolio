@@ -33,8 +33,7 @@ const HommeHeaders = () => {
           </Link>
           
         </div>
-      </nav>
-          
+      </nav>         
 
 
       {/* Fond décoratif */}

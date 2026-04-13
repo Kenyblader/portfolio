@@ -5,6 +5,9 @@ import { authHook } from '../utils/hooks/authHook';
 import useProject from '../utils/hooks/projectHook';
 import HommeHeaders from '../components/headers/hommeHeader';
 import { datas } from '../assets/data/datas';
+import About from '../components/about';
+import Contact from '../components/contact';
+import Footer from '../components/footer';
 
 
 const Home = () => {
@@ -19,6 +22,7 @@ const Home = () => {
       <HommeHeaders></HommeHeaders>
       <div>
         <div className="home_container">
+        <About/>
         <section className='projects' id="projects">
           <div className='section_header'>
             <span className='section_number'>02</span>
@@ -57,6 +61,8 @@ const Home = () => {
             ))}
           </div>
         </section>
+        <Contact/>
+        <Footer/>
       </div>
       </div>
     </>
