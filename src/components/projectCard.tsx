@@ -4,6 +4,7 @@ import '../style/projectCard.css';
 import { Github, ExternalLink } from "lucide-react";
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const techs = project.getTechsData();
 
   const troncedDescription = project.description.length > 200
     ? project.description.substring(0, 197) + "..."
@@ -11,12 +12,21 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <div className="project">
-      <a href={project.image} target="_blank" className="project_img_wrapper">
+      <a href={project.image} target="_blank" rel="noreferrer" className="project_img_wrapper">
         <img src={project.image ?? defaultImage} alt={project.title} />
       </a>
       <div className="project_body">
         <h2>{project.title}</h2>
         <p>{troncedDescription}</p>
+         {techs.length > 0 && (
+          <div className="project_techs">
+            {techs.map((tech) => (
+              <div key={tech.name} className="project_tech_item" data-name={`${tech.name} | (${tech.type})`}>
+                <img src={tech.icon} alt={tech.name} />
+              </div>
+            ))}
+          </div>
+        )}
         <div className="project-footer">
           <div className="project-links">
             {project.link && (

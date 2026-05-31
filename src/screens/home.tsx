@@ -1,7 +1,6 @@
 import '../style/home.css'
 import ProjectCard from '../components/projectCard';
 import { useTranslation } from 'react-i18next';
-import { authHook } from '../utils/hooks/authHook';
 import useProject from '../utils/hooks/projectHook';
 import HommeHeaders from '../components/headers/hommeHeader';
 import { datas } from '../assets/data/datas';

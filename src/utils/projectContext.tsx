@@ -34,10 +34,10 @@ export const ProjectProvider = ({children}: {children: React.ReactNode }) =>{
 
     function  addProject(formData: CreateProjectDTO){
         
-        projectService.createProject(formData).then(project=>{
-        if(project)
-            setProjects(prev=> [...prev, project]);
-        })
+        // projectService.createProject(formData).then(project=>{
+        // if(project)
+        //     setProjects(prev=> [...prev, project]);
+        // })
         
     }
 

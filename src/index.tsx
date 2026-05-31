@@ -9,6 +9,8 @@ import { LoadingProvider } from './utils/globalStateContext';
 import { MessageProvider } from './utils/messageContext';
 import { ProjectProvider } from './utils/projectContext';
 import { BrowserRouter } from 'react-router-dom';
+import { ClerkProvider } from '@clerk/react';
+import env from './assets/config/env';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,7 +26,9 @@ root.render(
           <MessageProvider>
             <ProjectProvider>
               <BrowserRouter>
+              <ClerkProvider publishableKey={env.CLERK_PUBLISHABLE_KEY} >
                 <App />
+              </ClerkProvider>
               </BrowserRouter>
             </ProjectProvider>
           </MessageProvider>

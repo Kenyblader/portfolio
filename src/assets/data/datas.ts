@@ -95,7 +95,8 @@ export const datas = {
         "imagePublicId": "portfolio/ubzhkeix35bv32acgmqc",
         "createdAt": "2025-11-10T11:21:19.000Z",
         "updatedAt": "2025-12-20T16:56:33.000Z",
-        "date": "2025-11-10T11:21:19.000Z"
+        "date": "2025-11-10T11:21:19.000Z",
+        "techs": ['react', 'nestjs', 'cloudinary', 'mysql']
     },
     {
         "id": "5237a476-3e3a-4047-b806-54d10c2b8ad3",
@@ -107,7 +108,8 @@ export const datas = {
         "imagePublicId": "portfolio/m43wtqoibxcorjb6ec9a",
         "createdAt": "2025-11-10T00:15:53.000Z",
         "updatedAt": "2025-12-20T16:57:26.000Z",
-        "date": "2025-11-10T00:15:53.000Z"
+        "date": "2025-11-10T00:15:53.000Z",
+        "techs": ['angular', 'cloudinary', 'nestjs','mysql']
     },
     {
         "id": "edac9b63-86d3-4109-81fb-05d0e132a50a",
@@ -119,7 +121,8 @@ export const datas = {
         "imagePublicId": undefined,
         "createdAt": "2026-04-06T14:40:10.000Z",
         "updatedAt": "2026-04-06T14:40:55.000Z",
-        "date": "2026-04-06T14:40:10.000Z"
+        "date": "2026-04-06T14:40:10.000Z",
+        "techs": [ 'nextjs', 'nodejs', 'supabase', 'tailwind']
     }],
     about: {
     quote: {

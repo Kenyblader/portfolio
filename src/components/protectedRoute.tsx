@@ -1,19 +1,27 @@
 import { JSX } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import useAuthHook from "../utils/hooks/authHook";
 
 interface ProtectedRouteProps {
   children: JSX.Element;
-  islog:boolean
 }
 
-const ProtectedRoute=({children,islog}:ProtectedRouteProps)=>{
+const ProtectedRoute=({children}:ProtectedRouteProps)=>{
 
     const location= useLocation();
-    
-    if (islog)
+    const authHook= useAuthHook();
+
+    if (!authHook.isLoaded) return (
+      <div className="auth_loading">
+        <span className="auth_spinner" />
+      </div>
+    );
+
+
+    if (authHook.isLoggedIn())
         return children;
     else
-        return <Navigate to="/login#form" state={{from:location}} replace />
+        return <Navigate to="/login" replace />;
 
 }
 

@@ -2,21 +2,13 @@ import { GithubIcon, LinkedinIcon, Mail, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "../lngSwitcher";
 import ThemeToggle from "../toggleThemeButton";
-import { authService } from '../../services/auth.service';
-import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { authHook } from "../../utils/hooks/authHook";
+import { useState } from "react";
 import { datas } from '../../assets/data/datas';
 import '../../style/hommeHeader.css';
+import useAuthHook from "../../utils/hooks/authHook";
 
 const HommeHeaders = () => {
-  const { t } = useTranslation();
-  const [isLog, setLog] = useState(authHook.isLoggedIn());
-
-
-  const delt = () => {
-    if (isLog) authService.logout();
-  };
+ const { isLoggedIn, logout } = useAuthHook();
 
   return (
     <header className="hero">
@@ -28,8 +20,8 @@ const HommeHeaders = () => {
           <ThemeToggle />
         </div>
         <div className="hero_nav_right">
-          <Link to={isLog ? "/dashboard" : "/login"} onClick={delt} className="hero_nav_cta">
-            {isLog ? 'Dashboard' : 'Login'}
+          <Link to={isLoggedIn() ? "/dashboard" : "/login"} onClick={logout} className="hero_nav_cta">
+            {isLoggedIn() ? 'Dashboard' : 'Login'}
           </Link>
           
         </div>
