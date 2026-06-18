@@ -12,7 +12,6 @@ import ConfirmModal from "../components/confirmPopup";
 import useProject from "../utils/hooks/projectHook";
 
 const Dashboard = () => {
-  // const [projects, setProjects] = useState<Project[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [views, setviews] = useState(0);
   const [isConfirm, setConfirmOpen] = useState(false);

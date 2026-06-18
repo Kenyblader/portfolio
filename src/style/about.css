@@ -1,0 +1,149 @@
+.about {
+  background: #0a0a0f;
+  padding: 7rem 4rem;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.about_glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 57, 255, 0.07) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  pointer-events: none;
+}
+
+/* Citation */
+.about_quote {
+  max-width: 820px;
+  margin: 0 auto 5rem;
+  text-align: center;
+  position: relative;
+}
+
+.about_quote_mark {
+  font-family: 'Syne', sans-serif;
+  font-size: 8rem;
+  line-height: 0.5;
+  color: rgba(99, 57, 255, 0.15);
+  display: block;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.about_quote_text {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.about_quote_text em {
+  background: linear-gradient(90deg, #6339ff, #ff5078);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: normal;
+}
+
+.about_quote_sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Séparateur */
+.about_sep {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(99, 57, 255, 0.4), transparent);
+  margin: 0 auto 5rem;
+}
+
+/* Cards */
+.about_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about_card {
+  background: #111318;
+  border: 0.5px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 1.75rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.about_card:hover {
+  border-color: rgba(99, 57, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+.about_card_icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.about_card_title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.about_card_text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.about_card_text strong {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+}
+
+.about_tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.about_tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(99, 57, 255, 0.1);
+  border: 0.5px solid rgba(99, 57, 255, 0.2);
+  color: rgba(99, 57, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1.5rem;
+  }
+  .about_cards {
+    grid-template-columns: 1fr;
+  }
+  .about_quote_text {
+    font-size: 1.5rem;
+  }
+}

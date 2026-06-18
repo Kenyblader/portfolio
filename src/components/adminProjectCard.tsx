@@ -14,7 +14,7 @@ const AdminProjectCard = ({project, editAction, deleteAction}: {project: Project
 
   return (
     <div className="project">
-      <a href={project.image} target="_blank" >
+      <a href={project.image} target="_blank" rel="noreferrer">
         <img src={project.image ?? defaultImage} alt={project.title} />
       </a>
       <h2>{project.title}</h2>
