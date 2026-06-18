@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import useAuthHook from "../utils/hooks/authHook";
 
 interface ProtectedRouteProps {
