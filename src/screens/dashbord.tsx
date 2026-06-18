@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [views, setviews] = useState(0);
   const [isConfirm, setConfirmOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigation = useNavigate();
   const { t } = useTranslation();

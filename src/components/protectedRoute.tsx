@@ -7,8 +7,6 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute=({children}:ProtectedRouteProps)=>{
-
-    const location= useLocation();
     const authHook= useAuthHook();
 
     if (!authHook.isLoaded) return (

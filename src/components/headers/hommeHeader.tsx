@@ -2,7 +2,6 @@ import { GithubIcon, LinkedinIcon, Mail, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "../lngSwitcher";
 import ThemeToggle from "../toggleThemeButton";
-import { useState } from "react";
 import { datas } from '../../assets/data/datas';
 import '../../style/hommeHeader.css';
 import useAuthHook from "../../utils/hooks/authHook";
