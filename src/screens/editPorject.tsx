@@ -189,7 +189,18 @@ if (loading) {
         </div>
         <button id="form" type="submit">{t('creer')}</button>
       </form>
-    </div>)
-}
+      {touched && Object.keys(errors).length > 0 && (
+        <div className="form_errors">
+          <h3>{t('projectForm.formErrors')}</h3>
+          <ul>
+            {Object.entries(errors).map(([field, error]) => (
+              <li key={field}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default EditProject;

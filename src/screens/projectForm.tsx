@@ -88,6 +88,8 @@ const ProjectForm = () => {
     async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
+        if (loading) return; // Prevent multiple submissions
+
         // Validate all fields
         const newErrors: Record<string, string> = {};
         for (const [name, value] of Object.entries(formData)) {
@@ -160,6 +162,16 @@ const ProjectForm = () => {
         </div>
         <button id="form" type="submit">{t('creer')}</button>
       </form>
+      {touched && Object.keys(errors).length > 0 && (
+        <div className="form_errors">
+          <h3>{t('projectForm.formErrors')}</h3>
+          <ul>
+            {Object.entries(errors).map(([field, error]) => (
+              <li key={field}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

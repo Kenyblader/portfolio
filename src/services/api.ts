@@ -1,4 +1,4 @@
-import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
 
 const url=process.env.REACT_APP_API
 console.log('rul:',url)
